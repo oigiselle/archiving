@@ -14,14 +14,42 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var descField: UITextField!
     @IBOutlet weak var dateField: UIDatePicker!
     
+    var itemList: ItemList!
+    var items: Item!
+    var index: Int!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if index != nil {
+            nameField.text = itemList.items[index].name
+            SKUField.text = itemList.items[index].SKU
+            descField.text = itemList.items[index].description
+            dateField.date = itemList.items[index].dateAdded
+            }
+        
         
     }
     
     @IBAction func save(_ sender: Any) {
+        if !nameField.text!.isEmpty{
+            let name = nameField.text!
+            let sku = SKUField.text!
+            let descriptions = descField.text!
+            let dateAdded = dateField.date
+            let item = Item(name: name, SKU: sku, description: descriptions, dateAdded: dateAdded)
+            if index == nil{
+                itemList.addItem(item: item)
+            } else {
+                itemList.editItem(row: index , item: item)
+                print("err")
+                    
+            }
+            navigationController?.popViewController(animated: true)
+            }
+        }
+        
     }
     
     /*
@@ -34,4 +62,3 @@ class DetailsViewController: UIViewController {
     }
     */
 
-}

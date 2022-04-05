@@ -152,7 +152,7 @@
                     <navigationItem key="navigationItem" title="Details" id="lud-cx-TfH">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ujj-VN-7O9">
                             <connections>
-                                <action selector="save:" destination="i7t-Ub-jyS" id="jkW-4a-7uW"/>
+                                <action selector="save:" destination="i7t-Ub-jyS" id="92g-aK-hHP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
